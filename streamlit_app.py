@@ -1,6 +1,8 @@
-#Import Libraries
+#Web application libraries
 import streamlit as st
 from streamlit_option_menu import option_menu
+
+#Analytics libraries
 import pandas as pd
 import warnings
 warnings.filterwarnings('ignore')
@@ -91,6 +93,7 @@ elif label_age > 65 and label_age <= 80 :
 
 #Button
 st.button(label="Predict" )
+st.spinner(text="In progress...")
 #st.metric("Customer belongs to ", )
 
 
