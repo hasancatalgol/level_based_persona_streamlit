@@ -78,7 +78,7 @@ elif label_age > 65 and label_age <= 80 :
 
 #Button
 st.button(label="Predict" )
-st.metric("Customer belongs to ", )
+#st.metric("Customer belongs to ", )
 
 
 
