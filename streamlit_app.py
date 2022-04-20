@@ -1,6 +1,6 @@
 #Import Libraries
 import streamlit as st
-import flag
+from streamlit_option_menu import option_menu
 import pandas as pd
 import warnings
 warnings.filterwarnings('ignore')
@@ -16,14 +16,19 @@ df = df_.copy()
 
 #Header for web application
 st.header("Level Based Persona - Simple Customer Segmentation")
+with st.sidebar:
+    selected = option_menu("Main Menu", ['About', 'Dashboard', 'Settings', 'Contact'],
+        icons=['house', 'clipboard-data', 'gear', 'person lines fill'], menu_icon="cast", default_index=1)
+
+
 
 #Create drop-down menu items
-countries_st = ["Turkey" + flag.flag("TR"),
-                "Brazil" + flag.flag("BR"),
-                "Germany" + flag.flag("DE"),
-                "United States" + flag.flag("US"),
-                "France" + flag.flag("FR"),
-                "Canada" + + flag.flag("CA")]
+countries_st = ["Turkey",
+                "Brazil",
+                "Germany",
+                "United States",
+                "France",
+                "Canada"]
 
 
 devices_st = ["Android", "IOS"]
