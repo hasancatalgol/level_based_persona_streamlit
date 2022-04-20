@@ -1,5 +1,6 @@
 #Import Libraries
 import streamlit as st
+import flag
 import pandas as pd
 import warnings
 warnings.filterwarnings('ignore')
@@ -17,7 +18,14 @@ df = df_.copy()
 st.header("Level Based Persona - Simple Customer Segmentation")
 
 #Create drop-down menu items
-countries_st = ["Turkey", "Brazil", "Germany", "United States", "France", "Canada"]
+countries_st = ["Turkey" + flag.flag("TR"),
+                "Brazil" + flag.flag("BR"),
+                "Germany" + flag.flag("DE"),
+                "United States" + flag.flag("US"),
+                "France" + flag.flag("FR"),
+                "Canada" + + flag.flag("CA")]
+
+
 devices_st = ["Android", "IOS"]
 genders_st = ["Female", "Male"]
 
