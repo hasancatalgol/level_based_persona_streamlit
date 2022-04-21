@@ -28,6 +28,7 @@ agg_df = agg_df[["customers_level_based", "price"]]
 agg_df["segment"] = pd.qcut(agg_df["price"], 4, labels=["D", "C", "B", "A"])
 agg_df.groupby("segment").agg({"price": ["count", "min", "max", "mean", "std", "sum"]}).sort_values("segment",
                                                                                                     ascending=False)
+
 # Create a page dropdown
 
 # Header for web application
@@ -105,6 +106,7 @@ if selected == 'Model':
     new_user = str(label_country + "_" + label_device + "_" + label_gender + "_" + label_age)
     st.spinner(text="In progress...")
     if st.button("Predict"):
+        agg_df.groupby(["segment"]).agg({"price": "mean"})
         st.dataframe(agg_df[agg_df["customers_level_based"] == new_user])
 
 elif selected == 'Dashboard':
