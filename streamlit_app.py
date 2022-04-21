@@ -28,7 +28,7 @@ agg_df = agg_df[["customers_level_based", "price"]]
 agg_df["segment"] = pd.qcut(agg_df["price"], 4, labels=["D", "C", "B", "A"])
 agg_df.groupby("segment").agg({"price": ["count", "min", "max", "mean", "std", "sum"]}).sort_values("segment",
                                                                                                     ascending=False)
-agg_df.groupby("segment").agg({"price": "sum"})
+agg_df.groupby("segment").agg({"price": "mean"})
 
 # Create a page dropdown
 
