@@ -1,7 +1,5 @@
 # Web application libraries
 import streamlit as st
-from streamlit_option_menu import option_menu
-
 
 # Analytics libraries
 import pandas as pd
