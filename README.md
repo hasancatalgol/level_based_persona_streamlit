@@ -9,8 +9,8 @@ In this repo, I made a Streamlit App for my previous work [Level Based Persona](
 
 - Modified the previous [Jupyter Notebook](https://jupyter.org/) file back in [PyCharm](https://www.jetbrains.com/pycharm/) 
 - Installed libraries in an [Anaconda](https://www.anaconda.com/) environment which created just for this project 
-- Used Streamlit elements for frontend 
-- Took a lot of smoking breaks 
+- Used Streamlit elements for frontend
+- Voila!
 
 ---
 
