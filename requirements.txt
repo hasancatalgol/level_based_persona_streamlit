@@ -1,0 +1,7 @@
+streamlit
+streamlit_option_menu
+plotly.express
+pandas
+numpy
+matplotlib
+warnings
