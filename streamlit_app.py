@@ -6,28 +6,36 @@ from streamlit_option_menu import option_menu
 # Analytics libraries
 import pandas as pd
 import warnings
-
 warnings.filterwarnings('ignore')
 
 # Read Data and join both tables
 users = pd.read_csv('Data/users.csv')
 purchases = pd.read_csv('Data/purchases.csv')
+#Merge both tables
 df_ = purchases.merge(users, how="inner", on="uid")
+#Copy df_ and assing it to df to makesure original data stay intact
 df = df_.copy()
 
-agg_df = df.groupby(["country", "device", "gender", "age"]).agg({"price": "sum"})
-agg_df.sort_values("price", ascending=False)
+agg_df = df.groupby(["country", "device", "gender", "age"]).agg({"price": "mean"}).sort_values("price",ascending=False)
 agg_df.reset_index(inplace=True)
+
+
 agg_df["age_cat"] = pd.cut(agg_df["age"],
                            [0, 18, 25, 35, 50, 65, 80],
                            labels=["0_18", "18_25", "25_35", "35_50", "50_65", "65_80"])
 
 agg_df["customers_level_based"] = [row[0] + "_" + row[1].upper() + "_" + row[2] + "_" + row[5] for row in agg_df.values]
+
 agg_df = agg_df[["customers_level_based", "price"]]
 
+agg_df["customers_level_based"].value_counts()
+
+agg_df = agg_df.groupby("customers_level_based").agg({"price":"mean"})
+agg_df = agg_df.reset_index()
+
 agg_df["segment"] = pd.qcut(agg_df["price"], 4, labels=["D", "C", "B", "A"])
-agg_df.groupby("segment").agg({"price": ["count", "min", "max", "mean", "std", "sum"]}).sort_values("segment",
-                                                                                                    ascending=False)
+
+
 agg_df.groupby("segment").agg({"price": "mean"})
 
 # Create a page dropdown
