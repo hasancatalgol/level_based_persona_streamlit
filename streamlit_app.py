@@ -1,6 +1,7 @@
 # Web application libraries
 import streamlit as st
 from streamlit_option_menu import option_menu
+import time
 # Analytics libraries
 import pandas as pd
 import plotly.express as px
@@ -87,13 +88,14 @@ agg_df.groupby("segment").agg({"price": "mean"})
 ### PAGE CREATION FOR WEB APPLICATION
 # Create sidebar
 with st.sidebar:
-    selected = option_menu("Main Menu", ['Model', 'Dashboard', 'Contact'],
-                           icons=['house', 'clipboard-data', 'person lines fill'], menu_icon="cast",
+    selected = option_menu("Main Menu", ['Model', 'Dashboard'],
+                           icons=['house', 'clipboard-data'], menu_icon="cast", orientation= "vertical",
                            default_index=0)
 ##MODEL PAGE
 if selected == 'Model':
     #Header for Model page
     st.header("Level Based Persona - Simple Customer Segmentation")
+
     # Create drop-down menu items
     countries_st = ["Turkey",
                     "Brazil",
@@ -161,23 +163,38 @@ if selected == 'Model':
     new_user = str(label_country + "_" + label_device + "_" + label_gender + "_" + label_age)
 
     #THE MOST IMPORTANT PART!
-    st.spinner(text="In progress...")
     if st.button("Predict"):
         st.dataframe(agg_df[agg_df["customers_level_based"] == new_user])
 
+
 ##CREATE DASHBOARD PAGE
 elif selected == 'Dashboard':
-
-    st.write("Total sales for each country")
+    # Graph Data
     total_sales = df.groupby(["country"]).agg({"price": "sum"}).sort_values('price', ascending=False)
     total_sales.reset_index(inplace=True)
-    fig = px.bar(total_sales, x='country', y='price')
+    # Graph Configurations
+    fig = px.bar(total_sales, x='country', y='price', color='country')
+    fig.update_layout(
+        title_text='Sales by Country',  # title of plot
+        xaxis_title_text='Country',  # xaxis label
+        yaxis_title_text='Total Amount Earned',  # yaxis label
+        bargap=0.2,  # gap between bars of adjacent location coordinates
+        bargroupgap=0.1  # gap between bars of the same location coordinates
+    )
     st.write(fig)
 
-    st.write("Customer Devices")
+    #Graph Data
     device_price = df.groupby(["device"]).agg({"price": "sum"}).sort_values('price', ascending=False)
     device_price.reset_index(inplace=True)
-    fig = px.bar(device_price, x='device', y='price')
+    #Graph Configurations
+    fig = px.bar(device_price, x='device', y='price', color='device')
+    fig.update_layout(
+        title_text='Customer Devices',  # title of plot
+        xaxis_title_text='Device OS',  # xaxis label
+        yaxis_title_text='Total Amount Earned',  # yaxis label
+        bargap=0.2,  # gap between bars of adjacent location coordinates
+        bargroupgap=0.1  # gap between bars of the same location coordinates
+    )
     st.write(fig)
 
 
