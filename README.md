@@ -2,7 +2,7 @@
 -------
 [Here is the link](https://share.streamlit.io/hasancatalgol/level_based_persona_streamlit/main)
 
-![model.png](https://raw.githubusercontent.com/hasancatalgol/level_based_persona_streamlit/main/ReadME_pics/model.png =50x50)
+![model](https://raw.githubusercontent.com/hasancatalgol/level_based_persona_streamlit/main/ReadME_pics/model.png =50x50)
 -------
 
 ## What is Streamlit?
