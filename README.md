@@ -11,7 +11,7 @@ Streamlit is an open source app framework in [Python](https://www.python.org/) l
 In this repo, I made a Streamlit App from my previous work.
 
 -------
-[<img src="https://raw.githubusercontent.com/hasancatalgol/level_based_persona_streamlit/main/ReadME_pics/model.png" width="50", height"50/>](image.png)
+[<img src=https://raw.githubusercontent.com/hasancatalgol/level_based_persona_streamlit/main/ReadME_pics/model.png width="50", height"50/>](image.png)
 
 
 -------
