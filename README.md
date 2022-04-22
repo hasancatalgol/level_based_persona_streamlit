@@ -3,7 +3,7 @@
 [Here is the link](https://share.streamlit.io/hasancatalgol/level_based_persona_streamlit/main)
 -------
 
-![model](https://raw.githubusercontent.com/hasancatalgol/level_based_persona_streamlit/main/ReadME_pics/model.png)
+![model](https://raw.githubusercontent.com/hasancatalgol/level_based_persona_streamlit/main/Pics/model.png)
 
 
 ## What is Streamlit?
