@@ -15,7 +15,7 @@ In this repo, I made a Streamlit App from my previous work.
 
 ## Project Steps
 
-- Modified the previous [Jupyter Notebook](https://jupyter.org/) file back in [PyCharm](https://www.jetbrains.com/pycharm/) 
+- Modified the previous [Jupyter Notebook](https://github.com/hasancatalgol/level_based_persona) file back in [PyCharm](https://www.jetbrains.com/pycharm/) 
 - Installed libraries in an [Anaconda](https://www.anaconda.com/) environment which created just for this project 
 - Used Streamlit elements for frontend 
 
